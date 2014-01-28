@@ -1,0 +1,39 @@
+
+body {
+  background-color: #D19826;
+ }
+
+#title {
+	background-color: white;
+	height: 100px;
+	text-align: center;
+	padding-top: 50px;
+}
+
+h2{
+	letter-spacing:2px;
+	color: #373C38;
+	opacity: 0.7;
+}
+
+#pic_holder{
+	text-align: center;
+}
+
+#pic_holder canvas{
+    margin: 0 auto;
+    display: block;
+	opacity: 1;
+	border:1px solid #000000;
+	border-radius: 15px;
+	border:8px solid black;
+}
+
+#pic_holder:after{
+	content: 'Drop a photo here';
+	top: 150px;
+	text-transform: uppercase;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+}
