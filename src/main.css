@@ -1,39 +1,84 @@
 
 body {
-  background-color: #D19826;
+  background-color: white;
  }
 
-#title {
-	background-color: white;
+#title{
 	height: 100px;
 	text-align: center;
 	padding-top: 50px;
 }
 
-h2{
+h2, h3{
 	letter-spacing:2px;
 	color: #373C38;
 	opacity: 0.7;
 }
 
-#pic_holder{
-	text-align: center;
-}
 
 #pic_holder canvas{
     margin: 0 auto;
     display: block;
 	opacity: 1;
+
+}
+
+#pic_holder{
+	margin: 0 auto;
+	display: block;
+	width: 500px;
+	height: 500px;
+	color: #373C38;
+	opacity: 0.9;
 	border:1px solid #000000;
 	border-radius: 15px;
 	border:8px solid black;
+	text-align: center;
 }
 
-#pic_holder:after{
-	content: 'Drop a photo here';
-	top: 150px;
-	text-transform: uppercase;
-	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-	font-size: 20px;
-	font-weight: 500;
+
+#filter_holder{
+	width: 700px;
+	margin: 50px auto;
+	position: relative;
+	display:none;
 }
+
+
+#filters{
+	padding: 20px 20px 30px;
+	border-radius: 8px;
+	background-color: rgba(0,0,0,0.1);
+	overflow: hidden;
+	list-style: none;
+	white-space: nowrap;
+	overflow-x: scroll;
+}
+
+#filters li{
+	display:inline-block;
+	margin:0 15px 0 0;
+}
+
+#filters li a{
+	width: 150px;
+	height: 120px;
+	display: inline-block;
+	position: relative;
+	background: center top no-repeat;
+	text-decoration: none !important;
+	font-weight: bold;
+	color: #ccc;
+	line-height: 294px;
+	text-align: center;
+	box-shadow: 0 0 1px rgba(255,255,255,0.4) inset;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+
+
+#filters li #normal{background-image:url('http://placekitten.com/g/150/120'); }
+#filters li #vintage{background-image:url('http://placekitten.com/g/150/120'); }
+#filters li #lomo{background-image:url('http://placekitten.com/g/150/120'); }
+#filters li #carity{background-image:url('http://placekitten.com/g/150/120'); }
