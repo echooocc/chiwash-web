@@ -1,18 +1,60 @@
+body{
+	background-color:#FCFAF2;
 
-body {
-  background-color: white;
- }
+}
 
 #title{
-	height: 100px;
+	height: 90px;
 	text-align: center;
 	padding-top: 50px;
 }
 
-h2, h3{
-	letter-spacing:2px;
-	color: #373C38;
+#title #name{
+	font-family: 'Lobster Two', cursive;
+	font-size: 36px;
+	color: #C73E3A;
 	opacity: 0.7;
+}
+
+#title #beta{	
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 24px;
+	color: #C73E3A;
+}
+
+h3{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 27px;
+    letter-spacing: 0.3em;
+	color: #C73E3A;
+}
+
+p {
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	font-size: 16px;
+	letter-spacing: 0.2px;
+	font-weight: 600;
+	color: #373C38
+}
+
+p a{
+	text-decoration: none;
+	color: #b54c3c;
+}
+p a:hover{ 
+	color: #707C74;
+}
+
+
+#pic_holder{
+	margin: 0 auto;
+	display: block;
+	width: 400px;
+	height: 400px;
+	opacity: 0.8;
+	border-radius: 15px;
+	border:5px dashed #373C38;
+	text-align: center;
 }
 
 
@@ -20,26 +62,19 @@ h2, h3{
     margin: 0 auto;
     display: block;
 	opacity: 1;
-
 }
 
-#pic_holder{
-	margin: 0 auto;
-	display: block;
-	width: 500px;
-	height: 500px;
-	color: #373C38;
-	opacity: 0.9;
-	border:1px solid #000000;
-	border-radius: 15px;
-	border:8px solid black;
-	text-align: center;
+#pic_holder img{
+	opacity: 0;
 }
 
+#info{
+	text-transform: uppercase;
+}
 
 #filter_holder{
 	width: 700px;
-	margin: 50px auto;
+	margin: 30px auto;
 	position: relative;
 	display:none;
 }
@@ -48,7 +83,6 @@ h2, h3{
 #filters{
 	padding: 20px 20px 30px;
 	border-radius: 8px;
-	background-color: rgba(0,0,0,0.1);
 	overflow: hidden;
 	list-style: none;
 	white-space: nowrap;
@@ -60,25 +94,98 @@ h2, h3{
 	margin:0 15px 0 0;
 }
 
-#filters li a{
-	width: 150px;
-	height: 120px;
+#filters a{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	width: 130px;
+	height: 130px;
 	display: inline-block;
 	position: relative;
 	background: center top no-repeat;
 	text-decoration: none !important;
 	font-weight: bold;
-	color: #ccc;
-	line-height: 294px;
+	color: #373C38;
+	line-height: 285px;
 	text-align: center;
-	box-shadow: 0 0 1px rgba(255,255,255,0.4) inset;
-	border-radius: 4px;
-	font-size: 12px;
+	font-size: 18px;
+}
+
+/*filters preivew*/
+/*#filters li #normal{background-image:url('http://placekitten.com/g/130/130'); }*/
+#filters li #normal{		background-image:url('img/normal.jpg'); }
+#filters li #vintage{		background-image:url('img/vintage.png'); }
+#filters li #lomo{			background-image:url('img/lomo.png'); }
+#filters li #clarity{		background-image:url('img/clarity.png'); }
+#filters li #sinCity{		background-image:url('img/sinCity.png'); }
+#filters li #sunrise{		background-image:url('img/sunrise.png'); }
+#filters li #crossProcess{	background-image:url('img/crossProcess.png'); }
+#filters li #orangePeel{	background-image:url('img/orangePeel.png'); }
+#filters li #love{			background-image:url('img/love.png'); }
+#filters li #grungy{		background-image:url('img/grungy.png'); }
+#filters li #jarques{		background-image:url('img/jarques.png'); }
+#filters li #pinhole{		background-image:url('img/pinhole.png'); }
+#filters li #oldBoot{		background-image:url('img/oldBoot.png'); }
+#filters li #glowingSun{	background-image:url('img/glowingSun.png'); }
+#filters li #hazyDays{		background-image:url('img/hazyDays.png'); }
+#filters li #herMajesty{	background-image:url('img/herMajesty.png'); }
+#filters li #nostalgia{		background-image:url('img/nostalgia.png'); }
+#filters li #hemingway{		background-image:url('img/hemingway.png'); }
+#filters li #concentrate{	background-image:url('img/concentrate.png'); }
+
+
+#filters li a.active:before{
+	content: '';
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	top: 0px;
+	left: 0px;
+	border:5px solid #373C38;
+	
 }
 
 
+/*footer*/
+footer {
+   height: 40px;
+   text-align:center; 
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background-color: #373C38;
+   opacity: 0.9;
+   position: fixed;
+ }
 
-#filters li #normal{background-image:url('http://placekitten.com/g/150/120'); }
-#filters li #vintage{background-image:url('http://placekitten.com/g/150/120'); }
-#filters li #lomo{background-image:url('http://placekitten.com/g/150/120'); }
-#filters li #carity{background-image:url('http://placekitten.com/g/150/120'); }
+footer p a{
+	color: #FCFAF2
+}
+
+
+footer p{
+	font-size: 0.8em;
+	color: #FCFAF2
+}
+
+footer p a:hover{
+	color: #C73E3A
+}
+
+.left_footer{
+	padding-left: 2em;
+	float: left;
+}
+
+.right_footer{
+	padding-right: 2em;
+	float: right;
+}
+
+.right_footer a{
+	color: #b54c3c
+}
+
+
+/*end of footer*/

@@ -3,6 +3,8 @@ $(function() {
 	var	pic = $('#pic_holder'),
 		filters = $('#filters li a'),
 		filter_holder = $('#filter_holder');
+		temp = null;
+		
 
 	// Use the fileReader plugin to listen for file drag and drop on the pic_holder div
 
@@ -12,6 +14,8 @@ $(function() {
 
 				$('#info').hide();
 				var img = $('<img>').appendTo(pic);
+				pic.find('canvas').remove();
+				pic.css({'border-width':'0px'});
 		
 				img.load(function(){
 
@@ -20,21 +24,31 @@ $(function() {
 						 'max-height': '100%',
 						});
 
-					// console.log(this.width);
-					// console.log(this.height);
-						
+					var top =0;
 					//vertical align the image in center
-					if(this.height<500){
-						var top= (500 - this.height)/2;
+					if(this.height<400){
+						top= (400 - this.height)/2;
 
-					img.css({
-						marginTop: top,
-						});
+					// img.css({
+					// 	marginTop: top,
+					// 	});
 					}
 
-					filter_holder.fadeIn();
+					//draw the resized image on canvas 
+					temp = $('<canvas>');
+					var tempContext = temp[0].getContext('2d');
 
-					// Trigger the default "normal" filter
+					temp.attr({
+						width: this.width,
+						height: this.height+top
+					});
+
+					tempContext.drawImage(this, 0, top, this.width, this.height);
+
+					img.remove();
+
+					filter_holder.fadeIn();
+					//set default select first one
 					filters.first().click();
 
 				});
@@ -50,7 +64,51 @@ $(function() {
 		},
 	});
 
-	
-	
+
+	//scroll bar actions
+	filters.click(function(e){
+		e.preventDefault();
+
+		var f = $(this);
+
+		//apply filter once
+		if(f.is('.active')){
+			return false;
+		}
+
+		filters.removeClass('active');
+		f.addClass('active');
+
+		//clone the original canvas
+		var clone = temp.clone();
+
+		//draw image on the canvas
+		clone[0].getContext('2d').drawImage(temp[0],0,0);
+
+		//add canvas show on the div
+		pic.find('canvas').remove().end().append(clone);
+
+		//if effects exits in Caman filters
+		var effect = $.trim(f[0].id);
+		// console.log(effect);
+
+		Caman(clone[0], function () {
+			if( effect in this){
+				this[effect]();
+				this.render();
+			}
+			
+		});
+	});
+
+	//modify scroll bar experience
+	filter_holder.find('ul').on('mousewheel',function(e, delta){
+
+		this.scrollLeft -= (delta * 50);
+		e.preventDefault();
+
+	});
+
+
 
 });
