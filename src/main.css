@@ -200,6 +200,36 @@ footer p a:hover{
 .right_footer a{
 	color: #b54c3c
 }
-
-
 /*end of footer*/
+
+
+/*layout for spell check page*/
+#gbutton{
+	background: #373C38;
+	color: white;
+	font-weight: 500;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	letter-spacing:1px;
+	opacity:0.9;
+}
+
+#gbutton:hover{
+	color: #D19826;
+}
+
+#input_holder{
+	text-align: center;
+	margin: 20px;
+}
+
+textarea{
+	padding: 50px;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 27px;
+	color: #373C38;
+}
+
+#dic{
+	opacity: 0.9;
+}
+
