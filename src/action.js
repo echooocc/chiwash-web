@@ -3,7 +3,10 @@ $(function() {
 	var	pic = $('#pic_holder'),
 		filters = $('#filters li a'),
 		filter_holder = $('#filter_holder');
-		temp = null;
+		temp = null; 
+		// buffer = null;
+		// imgData = null;
+
 		
 
 	// Use the fileReader plugin to listen for file drag and drop on the pic_holder div
@@ -37,6 +40,12 @@ $(function() {
 					//draw the resized image on canvas 
 					temp = $('<canvas>');
 					var tempContext = temp[0].getContext('2d');
+
+					//get the raw image data
+					// imgData = tempContext.getImageData(0,0,this.width,this.height);
+					// buffer = imgData.data;
+					// console.log(buffer);
+					// console.log('original imgData',imgData);
 
 					temp.attr({
 						width: this.width,
@@ -82,18 +91,41 @@ $(function() {
 		//clone the original canvas
 		var clone = temp.clone();
 
+		var cloneContext = clone[0].getContext('2d');
 		//draw image on the canvas
-		clone[0].getContext('2d').drawImage(temp[0],0,0);
+		cloneContext.drawImage(temp[0],0,0);
+
+		imgData = cloneContext.getImageData(0,0,clone[0].width,clone[0].height);
 
 		//add canvas show on the div
 		pic.find('canvas').remove().end().append(clone);
 
 		//if effects exits in Caman filters
 		var effect = $.trim(f[0].id);
-		// console.log(effect);
+		// console.log(buffer);
+
+
+
 
 		Caman(clone[0], function () {
-			if( effect in this){
+			
+			if (effect ===  "greyscale"){
+				console.log("greyscale");
+				ChinwashFilter.greyscale(imgData);
+				cloneContext.putImageData(imgData, 0,0);
+				pic.find('canvas').remove().end().append(clone);
+			}
+			else if (effect === "threshold"){
+				console.log("threshold");	
+				ChinwashFilter.threshold(imgData);
+				cloneContext.putImageData(imgData, 0,0);
+				pic.find('canvas').remove().end().append(clone);
+			}
+			else if (effect === "edge"){
+				console.log("edge");
+			}
+			else if( effect in this){
+				console.log(effect + ' exits');
 				this[effect]();
 				this.render();
 			}
@@ -108,6 +140,7 @@ $(function() {
 		e.preventDefault();
 
 	});
+
 
 
 

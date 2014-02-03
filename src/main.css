@@ -22,6 +22,17 @@ body{
 	color: #C73E3A;
 }
 
+#filter_holder{
+	text-align: center;
+}
+
+#filter_holder #update{	
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 24px;
+	color: #C73E3A;
+	opacity: 0.7;
+}
+
 h3{
 	font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 27px;
@@ -87,6 +98,7 @@ p a:hover{
 	list-style: none;
 	white-space: nowrap;
 	overflow-x: scroll;
+	margin-bottom: 100px;
 }
 
 #filters li{
@@ -112,6 +124,8 @@ p a:hover{
 /*filters preivew*/
 /*#filters li #normal{background-image:url('http://placekitten.com/g/130/130'); }*/
 #filters li #normal{		background-image:url('img/normal.jpg'); }
+#filters li #greyscale{		background-image:url('img/greyscale.png'); }
+#filters li #threshold{		background-image:url('img/threshold.png'); }
 #filters li #vintage{		background-image:url('img/vintage.png'); }
 #filters li #lomo{			background-image:url('img/lomo.png'); }
 #filters li #clarity{		background-image:url('img/clarity.png'); }
